@@ -1,3 +1,4 @@
 #directories
 GPIO_Driver/platformio.ini
-
+GPIO_Driver/.vscode
+GPIO_Driver/.gitignore
