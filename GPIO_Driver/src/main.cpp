@@ -2,13 +2,13 @@
 #include "GPIO_driver_UNO.h"
 
 void setup() {
-GPIO_pin_config(D0,OUTPUT_MODE);
+GPIO_pin_config(D12,OUTPUT_MODE);
 }
 
 
 void loop() {
-  digitalWrite(0,HIGH);
-  delay(100);
-  digitalWrite(0,LOW);
+  GPIO_digital_write(D12,HIGH_STATE);
+  delay(500);
+  GPIO_digital_write(D12,LOW_STATE);
   delay(100);
 }

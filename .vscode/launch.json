@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/dushimiyimanadavy/ARDUINO_UNO_DRIVERS/GPIO_Driver/src",
+      "program": "/Users/dushimiyimanadavy/ARDUINO_UNO_DRIVERS/GPIO_Driver/src/build/Debug/outDebug"
+    }
+  ]
+}

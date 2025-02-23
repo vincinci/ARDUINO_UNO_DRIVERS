@@ -70,7 +70,12 @@ typedef enum
     Enable
 }GPIO_pull_up_t;
 
+typedef enum
+{
+    LOW_STATE,
+    HIGH_STATE
+}GPIO_state_t;
+
 void GPIO_pin_config(GPIO_pins_t pin_num,GPIO_mode_t mode);
-
-
+void GPIO_digital_write(GPIO_pins_t pin_num, GPIO_state_t state);
 #endif
