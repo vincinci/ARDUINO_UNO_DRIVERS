@@ -1,16 +1,22 @@
 #include <Arduino.h>
 #include "GPIO_driver_UNO.h"
 
+uint8_t val;
+
 void setup() {
-GPIO_pin_config(D12,OUTPUT_MODE);
+GPIO_pin_config(D12,INPUT_MODE);
+Serial.begin(9600);
 }
 
 
 void loop() {
-  GPIO_digital_write(D12,HIGH_STATE);
-  delay(500);
-  GPIO_digital_write(D12,LOW_STATE);
-  delay(100);
-  GPIO_digital_read (D12);
-  delay(100);
+  val = GPIO_digital_read(D12);
+  delay(1000);
+  Serial.println(val);
+  val = GPIO_digital_read(D12);
+  delay(1000);
+  Serial.println(val);
+  val = GPIO_digital_read(D12);
+  delay(1000);
+  Serial.println(val);
 }
