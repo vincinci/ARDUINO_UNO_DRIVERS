@@ -78,4 +78,5 @@ typedef enum
 
 void GPIO_pin_config(GPIO_pins_t pin_num,GPIO_mode_t mode);
 void GPIO_digital_write(GPIO_pins_t pin_num, GPIO_state_t state);
+uint8_t GPIO_digital_read(GPIO_pins_t pin_num);
 #endif

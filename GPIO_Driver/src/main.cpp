@@ -11,4 +11,6 @@ void loop() {
   delay(500);
   GPIO_digital_write(D12,LOW_STATE);
   delay(100);
+  GPIO_digital_read (D12);
+  delay(100);
 }

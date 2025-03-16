@@ -536,3 +536,31 @@ void GPIO_digital_write(GPIO_pins_t pin_num, GPIO_state_t state)
 
     }
 }
+// Read the state of a pin (HIGH or LOW)
+uint8_t GPIO_digital_read(GPIO_pins_t pin_num)
+{
+    switch (pin_num)
+    {
+        case 0: return (PIN_D & (1 << 0)) ? 1 : 0;
+        case 1: return (PIN_D & (1 << 1)) ? 1 : 0;
+        case 2: return (PIN_D & (1 << 2)) ? 1 : 0;
+        case 3: return (PIN_D & (1 << 3)) ? 1 : 0;
+        case 4: return (PIN_D & (1 << 4)) ? 1 : 0;
+        case 5: return (PIN_D & (1 << 5)) ? 1 : 0;
+        case 6: return (PIN_D & (1 << 6)) ? 1 : 0;
+        case 7: return (PIN_D & (1 << 7)) ? 1 : 0;
+        case 8: return (PIN_B & (1 << 0)) ? 1 : 0;
+        case 9: return (PIN_B & (1 << 1)) ? 1 : 0;
+        case 10: return (PIN_B & (1 << 2)) ? 1 : 0;
+        case 11: return (PIN_B & (1 << 3)) ? 1 : 0;
+        case 12: return (PIN_B & (1 << 4)) ? 1 : 0;
+        case 13: return (PIN_B & (1 << 5)) ? 1 : 0;
+        case 14: return (PIN_C & (1 << 0)) ? 1 : 0;
+        case 15: return (PIN_C & (1 << 1)) ? 1 : 0;
+        case 16: return (PIN_C & (1 << 2)) ? 1 : 0;
+        case 17: return (PIN_C & (1 << 3)) ? 1 : 0;
+        case 18: return (PIN_C & (1 << 4)) ? 1 : 0;
+        case 19: return (PIN_C & (1 << 5)) ? 1 : 0;
+        default: return 0;
+    }
+}
