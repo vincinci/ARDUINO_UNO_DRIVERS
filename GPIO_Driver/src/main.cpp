@@ -4,19 +4,17 @@
 uint8_t val;
 
 void setup() {
-GPIO_pin_config(D12,INPUT_MODE);
-Serial.begin(9600);
+   PWM_config_pin(9);              // Use pin 9 (OC1A)
+   PWM_set_frequency_and_dutycycle(9, 500, 50);
+   GPIO_pin_config(D13,OUTPUT_MODE);
+   Serial.begin(9600);
 }
 
 
 void loop() {
-  val = GPIO_digital_read(D12);
-  delay(1000);
-  Serial.println(val);
-  val = GPIO_digital_read(D12);
-  delay(1000);
-  Serial.println(val);
-  val = GPIO_digital_read(D12);
-  delay(1000);
-  Serial.println(val);
+   PWM_set_frequency_and_dutycycle(9, 500, 50);
+   GPIO_digital_write(D13, HIGH_STATE);
+   delay(500);
+   GPIO_digital_write(D13, HIGH_STATE);
+   delay(500);
 }

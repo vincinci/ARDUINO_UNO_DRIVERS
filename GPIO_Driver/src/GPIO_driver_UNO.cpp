@@ -1,4 +1,5 @@
 #include "GPIO_driver_UNO.h"
+#include <avr/io.h>
 
 void GPIO_pin_config(GPIO_pins_t pin_num, GPIO_mode_t mode )
 {
@@ -593,4 +594,40 @@ uint8_t GPIO_digital_read(GPIO_pins_t pin_num, GPIO_pull_up_t status)
         case 19: return (PIN_C & (1 << 5)) ? 1 : 0;
         default: return 0;
     }
+}   
+
+
+void PWM_config_pin(uint8_t pin_num) {
+    switch (pin_num) {
+        case 9:
+            DDR_B |= (1 << 1);
+            break;
+        case 10:
+            DDR_B |= (1 << 2);
+            break;
+    }
+}
+
+void PWM_set_frequency_and_dutycycle(uint8_t pin_num, uint16_t frequency, float dutycycle) {
+    const uint16_t prescaler = 8;
+    const uint32_t f_cpu = 16000000;
+    TCCR1A = 0;
+    TCCR1B = 0;
+    
+    TCCR1A |= (1 << WGM11) | (1 << WGM10);
+    TCCR1B |= (1 << WGM12) | (1 << WGM13);
+    TCCR1B |= (1 << CS11); // set prescaler = 8
+    TCCR1B |= (1 << COM1A1); 
+
+    ICR1 = (uint16_t)(f_cpu / (prescaler * frequency))-1; // TOP value
+    OCR1A = (((uint16_t)(dutycycle /100)) * ICR1);
+
+    // switch (pin_num) {
+    //     case 9:
+    //         TCCR1A |= (1 << COM1A1);
+    //         break;
+    //     case 10:
+    //         TCCR1A |= (1 << COM1B1);
+    //         break;
+    // }
 }

@@ -80,4 +80,6 @@ void GPIO_pin_config(GPIO_pins_t pin_num,GPIO_mode_t mode);
 void GPIO_digital_write(GPIO_pins_t pin_num, GPIO_state_t state);
 uint8_t GPIO_digital_read(GPIO_pins_t pin_num);
 uint8_t GPIO_digital_read(GPIO_pins_t pin_num, GPIO_pull_up_t status);
+void PWM_config_pin(uint8_t pin_num);
+void PWM_set_frequency_and_dutycycle(uint8_t pin_num, uint16_t frequency, float dutycycle);
 #endif
